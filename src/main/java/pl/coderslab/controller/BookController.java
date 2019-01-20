@@ -51,7 +51,8 @@ public class BookController {
 
     @DeleteMapping("/{id}")
     public String deleteBook(@PathVariable Long id) {
-        return  "TODO: deleteBook " + id;
+        memoryBookService.deleteBook(id);
+        return  "deleted Book ID: " + id;
     }
 
     @PutMapping("/{id}")

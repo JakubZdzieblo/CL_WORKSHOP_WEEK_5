@@ -46,6 +46,10 @@ public class MemoryBookService {
         if (type != null) { updatedBook.setType(type); }
     }
 
+    public void deleteBook (Long id) {
+        list.remove(getBookById(id));
+    }
+
     public List<Book> getList() {return list;}
 
     public void setList(List<Book> list) {this.list = list;}
