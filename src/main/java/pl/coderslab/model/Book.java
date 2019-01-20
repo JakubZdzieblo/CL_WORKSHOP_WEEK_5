@@ -9,6 +9,8 @@ public class Book {
     private String publisher;
     private String type;
 
+    public Book() {
+    }
 
     // TODO: Builder Design Pattern
     public Book(long id, String isbn, String title, String author, String publisher, String type) {
