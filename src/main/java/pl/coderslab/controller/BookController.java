@@ -41,6 +41,12 @@ public class BookController {
         memoryBookService.addNewBook(id, isbn, title, author, publisher, type);
         return "Added new book: " + title + " by " + author;
     }
+    // TODO: nie działa
+    @PostMapping
+    public void addBook( @RequestBody Book book){
+        memoryBookService.addNewBook(book.getId(), book.getIsbn(), book.getTitle(),
+                book.getAuthor(), book.getPublisher(), book.getType());
+    }
 
     @DeleteMapping("/{id}")
     public String deleteBook(@PathVariable Long id) {
