@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class MemoryBookService {
+public class MemoryBookService implements BookService {
 
     private List<Book> list;
 
@@ -20,7 +20,7 @@ public class MemoryBookService {
                 "Cay Horstmann, Gary Cornell", "Helion", "programming"));
     }
 
-    public Book getBookById(long id) {
+    public Book getBookById(Long id) {
 
         Book foundBook = new Book();
         for (Book book : list) {

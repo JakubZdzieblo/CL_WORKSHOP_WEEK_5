@@ -4,6 +4,7 @@ package pl.coderslab.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.model.Book;
+import pl.coderslab.model.BookService;
 import pl.coderslab.model.MemoryBookService;
 
 import java.util.List;
@@ -13,18 +14,10 @@ import java.util.List;
 @RequestMapping("/books")
 public class BookController {
 
-    /*
-    GET	/books/ Zwraca listę wszystkich książek.
-    POST /books/ Tworzy nową książkę na podstawie danych przekazanych z formularza i zapisuje ją do bazy danych.
-    GET /books/{id} Wyświetla informacje o książce o podanym id.
-    PUT /books/{id} Zmienia informacje o książce o podanym id na nową.
-    DELETE /books/{id} Usuwa książkę o podanym id z bazy danych.
-    */
-
-    private MemoryBookService memoryBookService;
+    private BookService memoryBookService;
 
     @Autowired
-    public BookController(MemoryBookService memoryBookService) {
+    public BookController(BookService memoryBookService) {
         this.memoryBookService = memoryBookService;
     }
 
