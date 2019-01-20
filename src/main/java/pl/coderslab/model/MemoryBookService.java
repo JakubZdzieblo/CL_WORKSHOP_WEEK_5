@@ -37,6 +37,15 @@ public class MemoryBookService {
         list.add(book);
     }
 
+    public void updateBook(Long id, String isbn, String title, String author, String publisher, String type){
+        Book updatedBook = getBookById(id);
+        if (isbn != null) { updatedBook.setIsbn(isbn); }
+        if (title != null) { updatedBook.setTitle(title); }
+        if (author != null) { updatedBook.setAuthor(author); }
+        if (publisher != null) { updatedBook.setPublisher(publisher); }
+        if (type != null) { updatedBook.setType(type); }
+    }
+
     public List<Book> getList() {return list;}
 
     public void setList(List<Book> list) {this.list = list;}

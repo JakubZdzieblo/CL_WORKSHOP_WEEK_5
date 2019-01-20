@@ -21,7 +21,7 @@ public class BookController {
     DELETE /books/{id} Usuwa książkę o podanym id z bazy danych.
     */
 
-    MemoryBookService memoryBookService;
+    private MemoryBookService memoryBookService;
 
     @Autowired
     public BookController(MemoryBookService memoryBookService) {
@@ -41,14 +41,10 @@ public class BookController {
         return memoryBookService.getBookById(id);
     }
 
-    @PostMapping
-    public String createBook() {
-        return "TODO: createBook";
-    }
-    @PostMapping("/{id}/{isbn}/{title}/{author}/{publisher}/{type}")
-    public String addNewBook(@PathVariable Long id, @PathVariable String isbn,
-                             @PathVariable String title, @PathVariable String author,
-                             @PathVariable String publisher, @PathVariable String type) {
+    @PostMapping("/{id}")
+    public String createBook(@PathVariable Long id, @RequestParam String isbn,
+                             @RequestParam String title, @RequestParam String author,
+                             @RequestParam String publisher, @RequestParam String type) {
         memoryBookService.addNewBook(id, isbn, title, author, publisher, type);
         return "Added new book: " + title + " by " + author;
     }
@@ -57,9 +53,13 @@ public class BookController {
     public String deleteBook(@PathVariable Long id) {
         return  "TODO: deleteBook " + id;
     }
+
     @PutMapping("/{id}")
-    public String updateBook(@PathVariable Long id) {
-        return "TODO: updateBook " + id;
+    public String updateBook(@PathVariable Long id, @RequestParam (required = false) String isbn,
+                             @RequestParam (required = false) String title, @RequestParam (required = false) String author,
+                             @RequestParam (required = false) String publisher, @RequestParam (required = false) String type) {
+        memoryBookService.updateBook(id, isbn, title, author, publisher, type);
+        return "Updated Book ID: " + id;
     }
 
     @RequestMapping("/helloBook")
