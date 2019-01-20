@@ -2,6 +2,7 @@ package pl.coderslab.controller;
 
 
 import org.springframework.web.bind.annotation.*;
+import pl.coderslab.model.Book;
 
 // RestController od razu tworzy ResponseBody
 @RestController
