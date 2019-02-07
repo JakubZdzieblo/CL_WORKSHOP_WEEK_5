@@ -11,7 +11,7 @@ import java.util.List;
 
 // RestController od razu tworzy ResponseBody
 @RestController
-@RequestMapping("/books")
+@RequestMapping({"/books", "/"})
 public class BookController {
 
     private BookService memoryBookService;
